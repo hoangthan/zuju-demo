@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.zuju.zujuassessment.R
-import com.zuju.zujuassessment.main.fragments.PreviousMatchFragment
-import com.zuju.zujuassessment.main.fragments.UpcomingMatchFragment
+import com.zuju.zujuassessment.main.match.previous.PreviousMatchFragment
+import com.zuju.zujuassessment.main.match.upcoming.UpcomingMatchFragment
 
 class PagerAdapter constructor(
     fragmentManager: FragmentManager,

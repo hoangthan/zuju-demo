@@ -1,4 +1,4 @@
-package com.zuju.zujuassessment.main.fragments
+package com.zuju.zujuassessment.main.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

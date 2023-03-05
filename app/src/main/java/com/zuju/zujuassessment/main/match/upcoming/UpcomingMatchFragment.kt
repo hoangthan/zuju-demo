@@ -1,8 +1,9 @@
-package com.zuju.zujuassessment.main.fragments
+package com.zuju.zujuassessment.main.match.upcoming
 
 import android.view.LayoutInflater
 import android.view.View
 import com.zuju.zujuassessment.databinding.FragmentUpcomingBinding
+import com.zuju.zujuassessment.main.base.BaseFragment
 import com.zuju.zujuassessment.main.teams.SelectTeamFragment
 
 class UpcomingMatchFragment : BaseFragment<FragmentUpcomingBinding>() {
@@ -21,6 +22,8 @@ class UpcomingMatchFragment : BaseFragment<FragmentUpcomingBinding>() {
     }
 
     private fun navigateToSelectTeam() {
-        SelectTeamFragment().show(childFragmentManager, this.javaClass.canonicalName)
+        SelectTeamFragment {
+
+        }.show(childFragmentManager, this.javaClass.canonicalName)
     }
 }

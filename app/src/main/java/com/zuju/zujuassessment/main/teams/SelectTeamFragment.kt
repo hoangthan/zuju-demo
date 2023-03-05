@@ -2,10 +2,13 @@ package com.zuju.zujuassessment.main.teams
 
 import android.view.LayoutInflater
 import com.zuju.zujuassessment.databinding.FragmentSelectTeamBinding
-import com.zuju.zujuassessment.main.fragments.FullScreenDialogFragment
+import com.zuju.zujuassessment.main.base.FullScreenDialogFragment
+import com.zuju.zujuassessment.main.teams.TeamPlayerAdapter.OnTeamSelected
 import kotlin.random.Random
 
-class SelectTeamFragment : FullScreenDialogFragment<FragmentSelectTeamBinding>() {
+class SelectTeamFragment(
+    private val onTeamSelected: OnTeamSelected
+) : FullScreenDialogFragment<FragmentSelectTeamBinding>() {
 
     override fun getViewBinding(inflater: LayoutInflater): FragmentSelectTeamBinding {
         return FragmentSelectTeamBinding.inflate(inflater)
@@ -21,9 +24,9 @@ class SelectTeamFragment : FullScreenDialogFragment<FragmentSelectTeamBinding>()
                 avatar = "https://tstzj.s3.amazonaws.com/eagle.png",
             )
         }
-        binding.rcvTeamPlayer.setHasFixedSize(true)
+
         binding.rcvTeamPlayer.adapter = TeamPlayerAdapter(list) {
-            //Call to caller callback
+            onTeamSelected(it)
             dismiss()
         }
     }

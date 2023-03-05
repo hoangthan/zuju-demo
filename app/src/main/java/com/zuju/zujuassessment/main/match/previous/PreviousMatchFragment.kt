@@ -1,8 +1,9 @@
-package com.zuju.zujuassessment.main.fragments
+package com.zuju.zujuassessment.main.match.previous
 
 import android.view.LayoutInflater
 import android.view.View
 import com.zuju.zujuassessment.databinding.FragmentPreviousBinding
+import com.zuju.zujuassessment.main.base.BaseFragment
 import com.zuju.zujuassessment.main.teams.SelectTeamFragment
 
 class PreviousMatchFragment : BaseFragment<FragmentPreviousBinding>() {
@@ -21,6 +22,8 @@ class PreviousMatchFragment : BaseFragment<FragmentPreviousBinding>() {
     }
 
     private fun navigateToSelectTeam() {
-        SelectTeamFragment().show(childFragmentManager, this.javaClass.canonicalName)
+        SelectTeamFragment {
+
+        }.show(childFragmentManager, this.javaClass.canonicalName)
     }
 }

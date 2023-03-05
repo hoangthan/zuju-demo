@@ -26,35 +26,37 @@ class TeamPlayerAdapter(
 
     override fun onBindViewHolder(holder: TeamPlayerViewHolder, position: Int) {
         holder.bindData(teamPlayers[position])
-        holder.onItemClicked(onItemSelected, teamPlayers[position])
+        holder.onViewClicked(onItemSelected, teamPlayers[position])
     }
 
     fun interface OnTeamSelected {
         operator fun invoke(team: TeamPlayerUi)
     }
 
-    inner class TeamPlayerViewHolder(
-        private val binding: ItemTeamPlayBinding
+    class TeamPlayerViewHolder(
+        private val binding: ItemTeamPlayBinding,
     ) : ViewHolder(binding.root) {
         fun bindData(data: TeamPlayerUi) {
             binding.imgTeam.load(data.avatar)
             binding.tvTeamName.text = data.name
         }
 
-        fun onItemClicked(onItemSelected: OnTeamSelected, teamPlayer: TeamPlayerUi) {
+        fun onViewClicked(onItemSelected: OnTeamSelected, teamPlayer: TeamPlayerUi) {
             binding.root.setOnClickListener { onItemSelected(teamPlayer) }
         }
     }
 
     companion object {
         private val diffCallback = object : ItemCallback<TeamPlayerUi>() {
-            override fun areItemsTheSame(oldItem: TeamPlayerUi, newItem: TeamPlayerUi): Boolean {
-                return oldItem.id == newItem.id //id is the unique field, so we can use it to define 2 different objects
-            }
+            override fun areItemsTheSame(
+                oldItem: TeamPlayerUi,
+                newItem: TeamPlayerUi,
+            ) = oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: TeamPlayerUi, newItem: TeamPlayerUi): Boolean {
-                return oldItem == newItem //Just use compare by equals, because the data class ready implement compare 2 object by fields
-            }
+            override fun areContentsTheSame(
+                oldItem: TeamPlayerUi,
+                newItem: TeamPlayerUi,
+            ) = oldItem == newItem
         }
     }
 }
