@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_regular"
+    android:layout_marginBottom="@dimen/margin_regular"
+    android:elevation="4dp"
+    app:cardCornerRadius="@dimen/corner_radius_medium"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_regular">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgTeamHome"
+            android:layout_width="@dimen/team_avatar_size"
+            android:layout_height="@dimen/team_avatar_size"
+            android:background="@drawable/circle_background"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTeamHome"
+            style="@style/TextView.TeamTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_regular"
+            app:layout_constraintBottom_toBottomOf="@id/imgTeamHome"
+            app:layout_constraintStart_toEndOf="@id/imgTeamHome"
+            app:layout_constraintTop_toTopOf="@id/imgTeamHome"
+            tools:text="@string/place_holder" />
+
+        <TextView
+            android:id="@+id/tvMatchTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgTeamHome"
+            tools:text="@string/place_holder" />
+
+        <ImageView
+            android:id="@+id/imgNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_regular"
+            android:src="@drawable/ic_notification"
+            app:layout_constraintBottom_toBottomOf="@id/tvMatchTime"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@id/tvMatchTime"
+            app:layout_constraintTop_toTopOf="@id/tvMatchTime"
+            app:tint="@color/grey" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgTeamAway"
+            android:layout_width="@dimen/team_avatar_size"
+            android:layout_height="@dimen/team_avatar_size"
+            android:layout_marginTop="@dimen/margin_regular"
+            android:background="@drawable/circle_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchTime" />
+
+        <TextView
+            android:id="@+id/tvTeamAway"
+            style="@style/TextView.TeamTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_regular"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTeamAway"
+            app:layout_constraintEnd_toStartOf="@+id/imgTeamAway"
+            app:layout_constraintTop_toTopOf="@+id/imgTeamAway"
+            tools:text="@string/place_holder" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+

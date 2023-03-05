@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextView.TeamTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">?textAppearanceSubtitle2</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:alpha">0.85</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
