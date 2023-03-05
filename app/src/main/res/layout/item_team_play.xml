@@ -7,7 +7,9 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_regular"
     android:layout_marginBottom="@dimen/margin_medium"
+    android:background="@color/white"
     android:elevation="4dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/corner_radius_medium"
     app:layout_constraintTop_toTopOf="parent">
 
@@ -17,20 +19,20 @@
         android:padding="@dimen/padding_regular">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imgTeamHome"
+            android:id="@+id/imgTeam"
             style="@style/CircleImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTeamHome"
+            android:id="@+id/tvTeamName"
             style="@style/TextView.TeamTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_regular"
-            app:layout_constraintBottom_toBottomOf="@id/imgTeamHome"
-            app:layout_constraintStart_toEndOf="@id/imgTeamHome"
-            app:layout_constraintTop_toTopOf="@id/imgTeamHome"
+            app:layout_constraintBottom_toBottomOf="@id/imgTeam"
+            app:layout_constraintStart_toEndOf="@id/imgTeam"
+            app:layout_constraintTop_toTopOf="@id/imgTeam"
             tools:text="@string/place_holder" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

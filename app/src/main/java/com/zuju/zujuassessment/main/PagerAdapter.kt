@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.zuju.zujuassessment.R
+import com.zuju.zujuassessment.main.fragments.PreviousMatchFragment
 import com.zuju.zujuassessment.main.fragments.UpcomingMatchFragment
 
 class PagerAdapter constructor(
@@ -21,7 +22,7 @@ class PagerAdapter constructor(
         ),
         Screen(
             index = 1,
-            fragment = UpcomingMatchFragment(),
+            fragment = PreviousMatchFragment(),
             titleRes = R.string.previous,
         )
     ).sortedBy { it.index }

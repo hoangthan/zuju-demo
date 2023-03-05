@@ -13,6 +13,5 @@
     <dimen name="corner_radius_medium">4dp</dimen>
 
     <dimen name="text_size_regular">12sp</dimen>
-    <dimen name="text_size_top_barr">14sp</dimen>
     <dimen name="text_size_title">16sp</dimen>
 </resources>
