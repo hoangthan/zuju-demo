@@ -8,4 +8,12 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="CircleImage">
+        <item name="android:layout_width">@dimen/team_avatar_size</item>
+        <item name="android:layout_height">@dimen/team_avatar_size</item>
+        <item name="android:background">@drawable/circle_background</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
 </resources>

@@ -39,29 +39,27 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_regular"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgTeamHome"
             tools:text="@string/place_holder" />
 
-        <ImageView
-            android:id="@+id/imgNotification"
+        <TextView
+            android:id="@+id/tvMatchContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_regular"
-            android:src="@drawable/ic_notification"
-            app:layout_constraintBottom_toBottomOf="@id/tvMatchTime"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toEndOf="@id/tvMatchTime"
-            app:layout_constraintTop_toTopOf="@id/tvMatchTime"
-            app:tint="@color/grey" />
+            android:layout_marginHorizontal="@dimen/margin_regular"
+            android:layout_marginVertical="@dimen/margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchTime"
+            tools:text="@string/place_holder" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgTeamAway"
             style="@style/CircleImage"
             android:layout_marginTop="@dimen/margin_regular"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMatchTime" />
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchContent" />
 
         <TextView
             android:id="@+id/tvTeamAway"
@@ -73,6 +71,15 @@
             app:layout_constraintEnd_toStartOf="@+id/imgTeamAway"
             app:layout_constraintTop_toTopOf="@+id/imgTeamAway"
             tools:text="@string/place_holder" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgHighLight"
+            android:layout_width="@dimen/icon_big"
+            android:layout_height="@dimen/icon_big"
+            android:src="@drawable/img_record"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTeamAway"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgTeamAway" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
