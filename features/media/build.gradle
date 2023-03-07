@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace 'com.zuju.features.match'
+    namespace 'com.zuju.features.media'
     compileSdk 33
 
     defaultConfig {
@@ -56,9 +56,6 @@ android {
 
 dependencies {
     implementation project(path: ':features:core')
-    implementation project(path: ':libraries:match')
-    implementation project(path: ':features:teamplayer')
-    implementation project(path: ':features:media')
     implementation deps.hilt_android
     kapt deps.hilt_compiler
 }
