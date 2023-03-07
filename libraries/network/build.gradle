@@ -50,6 +50,7 @@ dependencies {
     api project(path: ':libraries:core')
     api deps.moshi.values()
     api deps.retrofit.values()
+    api deps.okhttp.values()
     implementation deps.hilt_android
     kapt deps.hilt_compiler
 }

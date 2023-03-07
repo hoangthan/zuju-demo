@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -17,8 +18,10 @@ class MatchNetworkModule {
     @Singleton
     fun provideTickerService(
         converterFactory: Converter.Factory,
+        okHttpClient: OkHttpClient,
     ): MatchApiService {
         return Retrofit.Builder()
+            .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .baseUrl(NetworkResource.BASE_URL)
             .build()
