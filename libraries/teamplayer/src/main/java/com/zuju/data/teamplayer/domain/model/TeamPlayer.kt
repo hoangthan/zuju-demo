@@ -1,4 +1,4 @@
-package com.zuju.data.teamplayer.domain.usecase
+package com.zuju.data.teamplayer.domain.model
 
 data class TeamPlayer(
     val id: String,

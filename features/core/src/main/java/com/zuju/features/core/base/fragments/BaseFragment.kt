@@ -22,7 +22,14 @@ abstract class BaseFragment<BINDING : ViewBinding> : Fragment(), View.OnClickLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        initObserver()
     }
+
+    /**
+     * This function is used for collect Flow from `ViewModel`
+     * Override this function to put your own collector
+     */
+    protected open fun initObserver() {}
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)

@@ -2,7 +2,7 @@ package com.zuju.data.teamplayer.data.network.dto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import com.zuju.data.teamplayer.domain.usecase.TeamPlayer
+import com.zuju.data.teamplayer.domain.model.TeamPlayer
 
 @JsonClass(generateAdapter = true)
 data class TeamDto(

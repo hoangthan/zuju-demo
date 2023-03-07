@@ -10,13 +10,10 @@ import com.zuju.features.match.databinding.ItemPreviousMatchBinding
 import com.zuju.features.match.previous.PreviousMatchAdapter.PreviousMatchViewHolder
 
 class PreviousMatchAdapter(
-    private val previousMatches: List<PreviousMatchUi>,
     private val callback: OnHighLightSelected,
 ) : ListAdapter<PreviousMatchUi, PreviousMatchViewHolder>(diffCallback) {
 
     private lateinit var inflater: LayoutInflater
-
-    override fun getItemCount() = previousMatches.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PreviousMatchViewHolder {
         if (!::inflater.isInitialized) {
@@ -28,8 +25,8 @@ class PreviousMatchAdapter(
     }
 
     override fun onBindViewHolder(holder: PreviousMatchViewHolder, position: Int) {
-        holder.bindData(previousMatches[position])
-        holder.onHighLightSelected(previousMatches[position], callback)
+        holder.bindData(getItem(position))
+        holder.onHighLightSelected(getItem(position), callback)
     }
 
     fun interface OnHighLightSelected {

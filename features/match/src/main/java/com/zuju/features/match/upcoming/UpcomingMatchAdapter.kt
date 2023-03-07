@@ -10,13 +10,10 @@ import com.zuju.features.match.databinding.ItemUpcomingMatchBinding
 import com.zuju.features.match.upcoming.UpcomingMatchAdapter.UpcomingMatchViewHolder
 
 class UpcomingMatchAdapter(
-    private val upcomingMatches: List<UpcomingMatchUi>,
     private val callback: OnRemindSelected,
 ) : ListAdapter<UpcomingMatchUi, UpcomingMatchViewHolder>(diffCallback) {
 
     private lateinit var inflater: LayoutInflater
-
-    override fun getItemCount(): Int = upcomingMatches.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingMatchViewHolder {
         if (!::inflater.isInitialized) {
@@ -28,8 +25,8 @@ class UpcomingMatchAdapter(
     }
 
     override fun onBindViewHolder(holder: UpcomingMatchViewHolder, position: Int) {
-        holder.bindData(upcomingMatches[position])
-        holder.onViewClicked(callback, upcomingMatches[position])
+        holder.bindData(getItem(position))
+        holder.onViewClicked(callback, getItem(position))
     }
 
     fun interface OnRemindSelected {

@@ -18,6 +18,7 @@ fun interface ErrorCallback {
     operator fun invoke(error: Result.Error)
 }
 
+//region Fragment+ProgressScreen
 fun <T, D> T.consumeResult(
     result: Result<D>,
     onError: ErrorCallback? = null,
@@ -41,23 +42,30 @@ fun <T, D> T.consumeResultFlow(
     flow: Flow<Result<D>>,
     onSuccess: (D) -> Unit,
 ) where T : Fragment, T : ProgressScreen {
-    observeFlow(flow = flow, state = Lifecycle.State.RESUMED) {
+    observeFlow(flow = flow, state = Lifecycle.State.CREATED) {
         consumeResult(result = it, onSuccess = onSuccess, onError = null)
     }
 }
 
-fun <T> Fragment.observeFlow(flow: Flow<T>, observer: suspend (T) -> Unit) {
-    viewLifecycleOwner.lifecycleScope.launch {
-        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-            flow.collectLatest { observer(it) }
-        }
+fun <T, D> T.consumeResultFlow(
+    flow: Flow<Result<D>>
+) where T : Fragment, T : ProgressScreen {
+    observeFlow(flow = flow, state = Lifecycle.State.CREATED) { result ->
+        consumeResult(result = result, onSuccess = { loadingView.hide(true) }, onError = null)
     }
+}
+//endregion
+
+//region Fragment
+fun <T> Fragment.observeFlow(
+    flow: Flow<T>,
+    observer: suspend (T) -> Unit,
+) {
+    observeFlow(Lifecycle.State.CREATED, flow, observer)
 }
 
 fun <T> Fragment.observeFlow(
-    state: Lifecycle.State,
-    flow: Flow<T>,
-    observer: suspend (T) -> Unit
+    state: Lifecycle.State, flow: Flow<T>, observer: suspend (T) -> Unit
 ) {
     viewLifecycleOwner.lifecycleScope.launch {
         viewLifecycleOwner.repeatOnLifecycle(state) {
@@ -65,3 +73,4 @@ fun <T> Fragment.observeFlow(
         }
     }
 }
+//endregion

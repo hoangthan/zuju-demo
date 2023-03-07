@@ -7,21 +7,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginVertical="@dimen/margin_regular"
+        android:id="@+id/rcvUpcomingMatch"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_regular"
         android:clipToPadding="false"
+        android:paddingTop="@dimen/padding_regular"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/layoutSelectTeam"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="10"
         tools:listitem="@layout/item_upcoming_match" />
-
-    <include
-        android:id="@+id/layoutSelectTeam"
-        layout="@layout/layout_select_team"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_regular"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

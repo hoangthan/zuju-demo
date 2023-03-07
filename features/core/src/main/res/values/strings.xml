@@ -6,4 +6,5 @@
     <string name="selected_team">Selected team:</string>
     <string name="select_your_team">Selected your team</string>
     <string name="reset">Reset</string>
+    <string name="all_team">All Team</string>
 </resources>

@@ -3,7 +3,7 @@ package com.zuju.data.teamplayer.data.datasource
 import com.zuju.data.teamplayer.data.network.TeamPlayerApiService
 import com.zuju.data.teamplayer.data.network.dto.asDomain
 import com.zuju.data.teamplayer.domain.repository.TeamPlayerRepository
-import com.zuju.data.teamplayer.domain.usecase.TeamPlayer
+import com.zuju.data.teamplayer.domain.model.TeamPlayer
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map

@@ -1,6 +1,6 @@
 package com.zuju.features.teamplayer
 
-import com.zuju.data.teamplayer.domain.usecase.TeamPlayer
+import com.zuju.data.teamplayer.domain.model.TeamPlayer
 
 data class TeamPlayerUi(
     val id: String,

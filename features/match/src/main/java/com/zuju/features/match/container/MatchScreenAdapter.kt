@@ -1,13 +1,13 @@
-package com.zuju.zujuassessment.main
+package com.zuju.features.match.container
 
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.zuju.features.core.R
 import com.zuju.features.match.previous.PreviousMatchFragment
 import com.zuju.features.match.upcoming.UpcomingMatchFragment
-import com.zuju.zujuassessment.R
 
 class MatchScreenAdapter constructor(
     fragmentManager: FragmentManager,
