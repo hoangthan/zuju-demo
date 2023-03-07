@@ -44,24 +44,34 @@
             app:layout_constraintTop_toBottomOf="@id/imgTeamHome"
             tools:text="@string/place_holder" />
 
-        <ImageView
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchTime"
+            tools:text="@string/place_holder" />
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
             android:padding="@dimen/padding_regular"
             android:src="@drawable/ic_notification"
-            app:layout_constraintBottom_toBottomOf="@id/tvMatchTime"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toEndOf="@id/tvMatchTime"
-            app:layout_constraintTop_toTopOf="@id/tvMatchTime"
-            app:tint="@color/grey" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/dark_grey" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgTeamAway"
             style="@style/CircleImage"
             android:layout_marginTop="@dimen/margin_regular"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMatchTime" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
         <TextView
             android:id="@+id/tvTeamAway"
