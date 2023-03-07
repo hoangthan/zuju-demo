@@ -32,6 +32,21 @@
             android:src="@drawable/ic_close"
             android:tint="@color/white" />
 
+        <TextView
+            android:id="@+id/tvReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/margin_regular"
+            android:alpha="0.9"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/reset"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_regular"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

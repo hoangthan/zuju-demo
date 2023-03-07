@@ -19,9 +19,9 @@ class SelectTeamViewModel @Inject constructor(
 
     private val _teamFlow = getTeams(GetTeamParam())
         .shareIn(
+            replay = 1,
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(),
-            replay = 1
         )
         .map { teams -> teams.map { it.toUiModel() } }
         .flowOn(Dispatchers.IO)

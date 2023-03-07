@@ -1,6 +1,7 @@
 package com.zuju.features.teamplayer
 
 import android.view.LayoutInflater
+import android.view.View
 import androidx.fragment.app.viewModels
 import com.zuju.features.core.base.fragments.FullScreenDialogFragment
 import com.zuju.features.core.base.utils.ProgressScreen
@@ -37,6 +38,16 @@ class SelectTeamFragment(
     }
 
     override val loadingView by lazy { binding.loadingView }
+
+    override fun initViewListener() {
+        binding.tvReset.setOnClickListener(this)
+    }
+
+    override fun onViewClicked(view: View) {
+        when (view.id) {
+            binding.tvReset.id -> onTeamSelected(null)
+        }
+    }
 
     override fun initObserver() {
         consumeResultFlow(viewModel.teamFlow, ::updateListTeam)

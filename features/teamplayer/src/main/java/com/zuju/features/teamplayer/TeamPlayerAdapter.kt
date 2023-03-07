@@ -27,7 +27,7 @@ class TeamPlayerAdapter(
     }
 
     fun interface OnTeamSelected {
-        operator fun invoke(team: TeamPlayerUi)
+        operator fun invoke(team: TeamPlayerUi?)
     }
 
     class TeamPlayerViewHolder(
