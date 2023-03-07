@@ -1,14 +1,18 @@
 package com.zuju.features.media.video
 
 import android.content.pm.ActivityInfo
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
+import com.zuju.features.core.base.utils.hide
+import com.zuju.features.core.base.utils.show
 import com.zuju.features.core.base.utils.showToast
 import com.zuju.features.media.R
 import com.zuju.features.media.databinding.ActivityVideoPlayerBinding
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class VideoPlayerActivity : AppCompatActivity() {
@@ -40,6 +44,19 @@ class VideoPlayerActivity : AppCompatActivity() {
         mediaController.setAnchorView(videoView)
         mediaController.setMediaPlayer(videoView)
         videoView.setMediaController(mediaController)
+
+        videoView.setOnInfoListener { _, what, _ ->
+            when (what) {
+                MediaPlayer.MEDIA_INFO_BUFFERING_START -> {
+                    binding.loadingView.show()
+                }
+                MediaPlayer.MEDIA_INFO_BUFFERING_END,
+                MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START -> {
+                    binding.loadingView.hide()
+                }
+            }
+            false
+        }
 
         videoView.start()
     }
