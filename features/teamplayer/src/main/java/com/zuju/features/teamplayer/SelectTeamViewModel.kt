@@ -18,14 +18,14 @@ class SelectTeamViewModel @Inject constructor(
 ) : BaseViewModel<SelectTeamEvent>() {
 
     private val _teamFlow = getTeams(GetTeamParam())
-        .shareIn(
-            replay = 1,
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(),
-        )
         .map { teams -> teams.map { it.toUiModel() } }
         .flowOn(Dispatchers.IO)
         .asResult()
+        .stateIn(
+            scope = viewModelScope,
+            initialValue = Result.Loading,
+            started = SharingStarted.WhileSubscribed(),
+        )
 
     val teamFlow: Flow<Result<List<TeamPlayerUi>>> = _teamFlow
 

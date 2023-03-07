@@ -3,7 +3,7 @@ package com.zuju.features.match.upcoming
 import android.view.LayoutInflater
 import androidx.fragment.app.activityViewModels
 import com.zuju.features.core.base.fragments.BaseFragment
-import com.zuju.features.core.base.utils.observeFlow
+import com.zuju.features.core.base.utils.observeResultFlow
 import com.zuju.features.core.base.utils.showToast
 import com.zuju.features.match.R
 import com.zuju.features.match.databinding.FragmentUpcomingBinding
@@ -31,7 +31,7 @@ class UpcomingMatchFragment : BaseFragment<FragmentUpcomingBinding>() {
     }
 
     override fun initObserver() {
-        observeFlow(sharedViewModel.upcomingMath, ::onMatchUpdated)
+        observeResultFlow(sharedViewModel.upcomingMatchFlow, ::onMatchUpdated)
     }
 
     private fun onMatchUpdated(newMatches: List<UpcomingMatchUi>) {

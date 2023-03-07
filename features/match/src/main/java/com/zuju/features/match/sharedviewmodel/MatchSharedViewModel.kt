@@ -2,6 +2,7 @@ package com.zuju.features.match.sharedviewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.zuju.data.core.model.asResult
+import com.zuju.data.core.model.mapResult
 import com.zuju.features.core.base.viewmodels.BaseViewModel
 import com.zuju.features.match.previous.toUi
 import com.zuju.features.match.sharedviewmodel.MatchSharedViewModel.MatchViewEvent
@@ -20,26 +21,24 @@ class MatchSharedViewModel @Inject constructor(
 ) : BaseViewModel<MatchViewEvent>() {
 
     private val _currentTeamFlow: MutableStateFlow<TeamPlayerUi?> = MutableStateFlow(null)
-    val currentTeamFlow: Flow<TeamPlayerUi?> = _currentTeamFlow.asStateFlow()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     private val _matchFlow = _currentTeamFlow
         .flatMapLatest { getMatch(GetMatchParam(it?.id)) }
-        .shareIn(
-            replay = 1,
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(),
-        )
+        .asResult()
+        .shareIn(scope = viewModelScope, started = SharingStarted.WhileSubscribed(), replay = 1)
 
-    val matchFlow = _matchFlow.asResult()
+    val matchFlow = _matchFlow
 
-    val previousMatch = _matchFlow.map { match ->
+    val previousMatchFlow = _matchFlow.mapResult { match ->
         match.previous.map { it.toUi() }
     }
 
-    val upcomingMath = _matchFlow.map { match ->
+    val upcomingMatchFlow = _matchFlow.mapResult { match ->
         match.upcoming.map { it.toUi() }
     }
+
+    val currentTeamFlow = _currentTeamFlow.asStateFlow()
 
     override fun dispatchEvent(event: MatchViewEvent) {
         when (event) {

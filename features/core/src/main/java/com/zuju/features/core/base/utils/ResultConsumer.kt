@@ -73,4 +73,31 @@ fun <T> Fragment.observeFlow(
         }
     }
 }
+
+fun <T> Fragment.observeResultFlow(
+    flow: Flow<Result<T>>,
+    onLoading: () -> Unit,
+    onError: (Result.Error) -> Unit,
+    onSuccess: suspend (T) -> Unit,
+) {
+    observeFlow(Lifecycle.State.CREATED, flow) {
+        when (it) {
+            is Result.Error -> onError(it)
+            is Result.Loading -> onLoading()
+            is Result.Success -> onSuccess(it.data)
+        }
+    }
+}
+
+fun <T> Fragment.observeResultFlow(
+    flow: Flow<Result<T>>,
+    onSuccess: suspend (T) -> Unit,
+) {
+    observeResultFlow(
+        flow = flow,
+        onError = {},
+        onLoading = {},
+        onSuccess = onSuccess
+    )
+}
 //endregion

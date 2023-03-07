@@ -4,7 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import androidx.fragment.app.activityViewModels
 import com.zuju.features.core.base.fragments.BaseFragment
-import com.zuju.features.core.base.utils.observeFlow
+import com.zuju.features.core.base.utils.observeResultFlow
 import com.zuju.features.match.databinding.FragmentPreviousBinding
 import com.zuju.features.match.sharedviewmodel.MatchSharedViewModel
 import com.zuju.features.media.video.VideoPlayerActivity
@@ -31,7 +31,7 @@ class PreviousMatchFragment : BaseFragment<FragmentPreviousBinding>() {
     }
 
     override fun initObserver() {
-        observeFlow(sharedViewModel.previousMatch, ::onMatchUpdated)
+        observeResultFlow(sharedViewModel.previousMatchFlow, ::onMatchUpdated)
     }
 
     private fun onMatchUpdated(newData: List<PreviousMatchUi>) {

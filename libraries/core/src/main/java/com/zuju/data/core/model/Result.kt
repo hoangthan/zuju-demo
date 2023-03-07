@@ -17,3 +17,13 @@ fun <T> Flow<T>.asResult(): Flow<Result<T>> {
         .onStart { emit(Result.Loading) }
         .catch { emit(Result.Error(it)) }
 }
+
+inline fun <T, R> Flow<Result<T>>.mapResult(crossinline transform: suspend (value: T) -> R): Flow<Result<R>> {
+    return map {
+        when (it) {
+            is Result.Error -> it
+            is Result.Loading -> it
+            is Result.Success -> Result.Success(transform(it.data))
+        }
+    }
+}
