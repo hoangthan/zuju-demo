@@ -11,6 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -20,6 +21,9 @@ include ':app'
 
 include ':libraries:core'
 include ':libraries:network'
-
 include 'libraries:teamplayer'
 include ':libraries:resource'
+
+include ':features:core'
+include ':features:match'
+include ':features:teamplayer'

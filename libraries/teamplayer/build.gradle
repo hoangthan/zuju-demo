@@ -1,6 +1,7 @@
 plugins {
     id 'kotlin-kapt'
     id 'com.android.library'
+    id 'dagger.hilt.android.plugin'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -48,7 +49,7 @@ android {
 dependencies {
     implementation project(path: ':libraries:network')
     implementation project(path: ':libraries:resource')
-
     implementation deps.hilt_android
     kapt deps.hilt_compiler
+    kapt deps.moshi.codegen
 }

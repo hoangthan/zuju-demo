@@ -1,6 +1,7 @@
 plugins {
     id 'kotlin-kapt'
     id 'com.android.library'
+    id 'dagger.hilt.android.plugin'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -47,9 +48,8 @@ android {
 
 dependencies {
     api project(path: ':libraries:core')
+    api deps.moshi.values()
     api deps.retrofit.values()
-    api deps.moshi
-    kapt deps.moshi_codegen
     implementation deps.hilt_android
     kapt deps.hilt_compiler
 }

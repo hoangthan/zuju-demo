@@ -1,7 +1,8 @@
 plugins {
+    id 'kotlin-kapt'
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
     id 'com.google.dagger.hilt.android'
 }
 
@@ -43,9 +44,16 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    kapt {
+        generateStubs = true
+    }
+
+    hilt {
+        enableExperimentalClasspathAggregation = true
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
     }
 
     kotlinOptions {
@@ -69,7 +77,9 @@ dependencies {
     kapt deps.hilt_compiler
     implementation deps.hilt_android
 
-    implementation project(path: ':libraries:teamplayer')
+    implementation project(path: ':features:core')
+    implementation project(path: ':features:match')
+    implementation project(path: ':features:teamplayer')
 }
 
 kapt {

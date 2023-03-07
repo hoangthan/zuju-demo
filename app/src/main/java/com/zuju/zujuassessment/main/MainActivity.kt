@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.tabs.TabLayoutMediator
 import com.zuju.zujuassessment.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewPager() {
-        val adapter = PagerAdapter(supportFragmentManager, lifecycle)
+        val adapter = MatchScreenAdapter(supportFragmentManager, lifecycle)
         binding.viewPager.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.setText(adapter.getTitleRes(position))
