@@ -59,6 +59,7 @@ dependencies {
     implementation project(path: ':libraries:match')
     implementation project(path: ':features:teamplayer')
     implementation project(path: ':features:media')
+    implementation deps.work_manager
     implementation deps.hilt_android
     kapt deps.hilt_compiler
 }

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
-import com.zuju.data.core.utils.TimeFormatter
+import com.zuju.data.core.utils.DateTimeUtils
 import com.zuju.features.match.databinding.ItemPreviousMatchBinding
 import com.zuju.features.match.previous.PreviousMatchAdapter.PreviousMatchViewHolder
 
@@ -39,10 +39,10 @@ class PreviousMatchAdapter(
     ) : ViewHolder(binding.root) {
 
         fun bindData(match: PreviousMatchUi) {
-            binding.tvMatchTime.text = TimeFormatter.formatDateString(
+            binding.tvMatchTime.text = DateTimeUtils.formatDateString(
                 source = match.date,
-                sourceFormat = TimeFormatter.ISO_8601,
-                destinationFormat = TimeFormatter.DATE_HOUR,
+                sourceFormat = DateTimeUtils.ISO_8601,
+                destinationFormat = DateTimeUtils.DATE_HOUR,
             )
 
             binding.tvTeamHome.text = match.homeTeamName

@@ -4,8 +4,8 @@ import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.widget.MediaController
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.zuju.features.core.base.utils.showToast
 import com.zuju.features.media.R
 import com.zuju.features.media.databinding.ActivityVideoPlayerBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +27,7 @@ class VideoPlayerActivity : AppCompatActivity() {
     private fun playVideo() {
         val videoUrl = intent.getStringExtra(URL_KEY)
         videoUrl ?: run {
-            Toast.makeText(this, R.string.not_found_video, Toast.LENGTH_SHORT).show()
+            showToast(R.string.not_found_video)
             finish()
             return
         }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="created_remind">Created remind for this match</string>
+    <string name="match_is_started">Match is started</string>
+    <string name="the_match_between">The match between: %s vs %s</string>
+</resources>

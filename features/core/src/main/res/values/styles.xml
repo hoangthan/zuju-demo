@@ -13,7 +13,8 @@
         <item name="android:layout_width">@dimen/team_avatar_size</item>
         <item name="android:layout_height">@dimen/team_avatar_size</item>
         <item name="android:background">@drawable/circle_background</item>
-        <item name="android:scaleType">centerCrop</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:adjustViewBounds">true</item>
     </style>
 
     <style name="FullDialogFragmentStyle" parent="Theme.Design.BottomSheetDialog" />

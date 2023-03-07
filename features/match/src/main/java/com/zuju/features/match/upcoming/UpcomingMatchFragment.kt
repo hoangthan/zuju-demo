@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import androidx.fragment.app.activityViewModels
 import com.zuju.features.core.base.fragments.BaseFragment
 import com.zuju.features.core.base.utils.observeFlow
+import com.zuju.features.core.base.utils.showToast
+import com.zuju.features.match.R
 import com.zuju.features.match.databinding.FragmentUpcomingBinding
 import com.zuju.features.match.sharedviewmodel.MatchSharedViewModel
+import com.zuju.features.match.upcoming.reminder.MatchReminder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,9 +22,7 @@ class UpcomingMatchFragment : BaseFragment<FragmentUpcomingBinding>() {
     }
 
     override fun initView() {
-        upcomingMatchAdapter = UpcomingMatchAdapter {
-
-        }
+        upcomingMatchAdapter = UpcomingMatchAdapter(::setAlarmForMatch)
 
         binding.rcvUpcomingMatch.apply {
             adapter = upcomingMatchAdapter
@@ -35,5 +36,10 @@ class UpcomingMatchFragment : BaseFragment<FragmentUpcomingBinding>() {
 
     private fun onMatchUpdated(newMatches: List<UpcomingMatchUi>) {
         upcomingMatchAdapter.submitList(newMatches)
+    }
+
+    private fun setAlarmForMatch(upcomingMatch: UpcomingMatchUi) {
+        MatchReminder.remind(requireContext(), upcomingMatch)
+        showToast(R.string.created_remind)
     }
 }
