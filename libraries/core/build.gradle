@@ -50,4 +50,5 @@ dependencies {
     api deps.coroutine
     api deps.hilt_android
     kapt deps.hilt_compiler
+    testImplementation deps.junit
 }

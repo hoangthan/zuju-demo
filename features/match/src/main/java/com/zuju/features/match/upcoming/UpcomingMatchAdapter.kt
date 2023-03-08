@@ -40,7 +40,7 @@ class UpcomingMatchAdapter(
 
         fun bindData(upcomingMatchUi: UpcomingMatchUi) {
             binding.tvMatchTime.text = DateTimeUtils.formatDateString(
-                source = upcomingMatchUi.date,
+                dateString = upcomingMatchUi.date,
                 sourceFormat = DateTimeUtils.ISO_8601,
                 destinationFormat = DateTimeUtils.DATE_HOUR,
             )

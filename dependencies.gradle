@@ -24,6 +24,7 @@ versions.okhttp = "5.0.0-alpha.2"
 versions.lifecycle_version = "2.5.1"
 versions.fragment = "1.5.5"
 versions.work_version = "2.8.0"
+versions.junit = "4.13.2"
 ext.versions = versions
 //endregion
 
@@ -69,6 +70,8 @@ viewmodel.view_model_state = "androidx.lifecycle:lifecycle-viewmodel-savedstate:
 deps.viewmodel = viewmodel
 
 deps.work_manager = "androidx.work:work-runtime-ktx:$versions.work_version"
+
+deps.junit =  "junit:junit:$versions.junit"
 
 ext.deps = deps
 //endregion

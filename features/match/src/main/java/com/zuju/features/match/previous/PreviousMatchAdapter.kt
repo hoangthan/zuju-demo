@@ -40,7 +40,7 @@ class PreviousMatchAdapter(
 
         fun bindData(match: PreviousMatchUi) {
             binding.tvMatchTime.text = DateTimeUtils.formatDateString(
-                source = match.date,
+                dateString = match.date,
                 sourceFormat = DateTimeUtils.ISO_8601,
                 destinationFormat = DateTimeUtils.DATE_HOUR,
             )

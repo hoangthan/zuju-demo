@@ -9,21 +9,26 @@ object DateTimeUtils {
     const val DATE_HOUR = "MM/dd/yyy HH'h':mm"
 
     fun formatDateString(
-        source: String,
+        dateString: String,
         sourceFormat: String,
         destinationFormat: String,
     ): String? {
-        val sourceDateFormat = SimpleDateFormat(sourceFormat, Locale.getDefault())
 
         val date = try {
-            sourceDateFormat.parse(source)
-        } catch (e: ParseException) {
+            val sourceDateFormat = SimpleDateFormat(sourceFormat, Locale.getDefault())
+            sourceDateFormat.parse(dateString)
+        } catch (e: Exception) {
             e.printStackTrace()
             return null
         }
 
-        val destDateFormat = SimpleDateFormat(destinationFormat, Locale.getDefault())
-        return destDateFormat.format(date)
+        return try {
+            val destDateFormat = SimpleDateFormat(destinationFormat, Locale.getDefault())
+            destDateFormat.format(date)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
     }
 
     fun convertStringToMillis(source: String, format: String): Long? {
