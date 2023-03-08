@@ -22,6 +22,13 @@
 - I have used Figma to mockup the UI before implement the UI
 - [Check it out](https://www.figma.com/file/HJqdg5GMYwGdusIN9eX1Tn/Zuju---UI-Mockup?node-id=0%3A1&t=F0oMzyRGSIfHJct7-1)
 
+## Demo
+
+
+https://user-images.githubusercontent.com/28387397/223627443-9215e0e7-3929-4f06-91d6-8c0e5495d40d.mp4
+
+
+
 ## Dependencies
 #### Kotlin core
 versions.core_ktx = '1.9.0'
