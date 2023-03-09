@@ -33,6 +33,18 @@
             app:layout_constraintTop_toTopOf="@id/imgTeamHome"
             tools:text="@string/place_holder" />
 
+        <ImageView
+            android:id="@+id/imgHomeWin"
+            android:layout_width="@dimen/icon_regular"
+            android:layout_height="@dimen/icon_big"
+            android:layout_margin="@dimen/margin_regular"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_crown"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTeamHome"
+            app:layout_constraintStart_toEndOf="@+id/tvTeamHome"
+            app:layout_constraintTop_toTopOf="@+id/tvTeamHome" />
+
         <TextView
             android:id="@+id/tvMatchTime"
             android:layout_width="wrap_content"
@@ -71,6 +83,18 @@
             app:layout_constraintEnd_toStartOf="@+id/imgTeamAway"
             app:layout_constraintTop_toTopOf="@+id/imgTeamAway"
             tools:text="@string/place_holder" />
+
+        <ImageView
+            android:id="@+id/imgAwayWin"
+            android:layout_width="@dimen/icon_regular"
+            android:layout_height="@dimen/icon_big"
+            android:layout_margin="@dimen/margin_regular"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_crown"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTeamAway"
+            app:layout_constraintEnd_toStartOf="@+id/tvTeamAway"
+            app:layout_constraintTop_toTopOf="@+id/tvTeamAway" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgHighLight"

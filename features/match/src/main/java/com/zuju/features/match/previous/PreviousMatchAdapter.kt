@@ -2,6 +2,7 @@ package com.zuju.features.match.previous
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -51,6 +52,9 @@ class PreviousMatchAdapter(
 
             binding.imgTeamHome.load(match.homeTeamAvatar)
             binding.imgTeamAway.load(match.awayTeamAvatar)
+
+            binding.imgHomeWin.isVisible = match.homeTeamName == match.winner
+            binding.imgAwayWin.isVisible = match.awayTeamName == match.winner
         }
 
         fun onHighLightSelected(match: PreviousMatchUi, callback: OnHighLightSelected) {
